@@ -1,1 +1,9 @@
+# Eclipse metadata files
+.metadata
+.classpath
+.project
+.settings
+
+#Java build outputs
 /bin/
+*.class
