@@ -3,16 +3,32 @@ import java.util.Random;
 public class Main {
 
 	public static void main(String[] args) {
+		//countDown(10);
 		Sort sort = new Sort();
+		int[] array1 = new int[] {10,9,8,7,6,5,4,3,2,1};
+		sort.insertion(array1);
+		showArray(array1);
+		/*
 		
-		int[] array1 = new int[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+		
 		int[] array2 = new int[20];
 		loadArrayRandom(array2,100,0);
 		sort.icbics(array2);
-		showArray(array2);
+		
 		System.out.println("Index: "+ binarySearch(array2,45));
+		*/
 	}
 	
+	
+	public static void countDown(int start) {
+		
+		if(start > 0) {
+			System.out.println(start);
+			countDown(start-1);
+		}
+		else if(start == 0)
+			System.out.println("GO!");
+	}
 	
 	
 	public static void loadArrayRandom(int[] array, int nRands, int start) {

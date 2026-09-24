@@ -1,6 +1,52 @@
 
+
 public class Sort {
 
+	
+	
+	public void insertion(int[] array) {
+		//looks at first spot and decides if its smaller than the one behind it until it finds a spot or reaches the end. shifts everything over occordingly then moves to the next spot.
+		int bound = 0;
+		int index = 0;
+		int low;
+		
+		while(bound < array.length-1) {
+			low = array[bound];
+			for(int i = bound; i >= 0; i--) {
+				if(low <= array[i] ) {
+					index = i;
+					break;
+				}
+			}
+			for(int i = bound; i > index; i--) {
+				array[i]=array[i-1];
+			}
+			array[index]=low;
+			bound++;
+		}
+	
+	}
+	
+	public void selection(int[] array) {
+		//look through the array and find the smallest number and swap it with the first spot. look from spot 2 to the end for the second lowest and swap... etc
+		int low;
+		int bound = 0;
+		int index = 0;
+		
+		while(bound<array.length-1) {
+			low = array[bound];
+			for(int i = bound; i < array.length; i++) {
+				if(array[i] <= low) {
+					low = array[i];
+					index = i;
+				}
+			}
+			array[index]=array[bound];
+			array[bound]=low;
+			bound++;
+		}
+	}
+	
 	
 	public void icbics(int[] array1) {
 		//I cant believe it can sort
