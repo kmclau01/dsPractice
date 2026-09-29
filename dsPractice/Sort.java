@@ -2,7 +2,16 @@
 
 public class Sort {
 
+	public void merge(int[] array) {
+		//look at middle like in binary search. lower section is lessthan middle and other section is greaterthan
+
+		
+	}
 	
+	public void quick(int[] array) {
+		//pick any spot(the last elmt) to be pivot value. 
+		
+	}
 	
 	public void insertion(int[] array) {
 		//looks at first spot and decides if its smaller than the one behind it until it finds a spot or reaches the end. shifts everything over occordingly then moves to the next spot.
