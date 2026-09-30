@@ -6,25 +6,25 @@ public class Sort {
 	
 	public void insertion(int[] array) {
 		//looks at first spot and decides if its smaller than the one behind it until it finds a spot or reaches the end. shifts everything over occordingly then moves to the next spot.
-		int bound = 0;
-		int index = 0;
-		int low;
+		int n = array.length;
+		int key;
+		int j;
+		System.out.println("Starting sort!");
 		
-		while(bound < array.length-1) {
-			low = array[bound];
-			for(int i = bound; i >= 0; i--) {
-				if(low <= array[i] ) {
-					index = i;
-					break;
-				}
+		for(int i = 1; i < n; i++) {
+			key = array[i];
+			j = i-1;
+			
+			while(j >= 0 && array[j] > key) {
+				array[j + 1] = array[j];
+				j--;
 			}
-			for(int i = bound; i > index; i--) {
-				array[i]=array[i-1];
-			}
-			array[index]=low;
-			bound++;
+			array[j+1] = key;
 		}
-	
+		
+		
+		System.out.println("Finished sorting!");
+		
 	}
 	
 	public void selection(int[] array) {
