@@ -38,22 +38,24 @@ public class Sort {
 	
 	public void selection(int[] array) {
 		//look through the array and find the smallest number and swap it with the first spot. look from spot 2 to the end for the second lowest and swap... etc
-		int low;
-		int bound = 0;
-		int index = 0;
+		int n = array.length;
+		int key;
+		int j;
+		System.out.println("Starting sort!");
 		
-		while(bound<array.length-1) {
-			low = array[bound];
-			for(int i = bound; i < array.length; i++) {
-				if(array[i] <= low) {
-					low = array[i];
-					index = i;
-				}
+		for(int i = 1; i < n; i++) {
+			key = array[i];
+			j = i-1;
+			
+			while(j >= 0 && array[j] > key) {
+				array[j + 1] = array[j];
+				j--;
 			}
-			array[index]=array[bound];
-			array[bound]=low;
-			bound++;
+			array[j+1] = key;
 		}
+		
+		
+		System.out.println("Finished sorting!");
 	}
 	
 	
