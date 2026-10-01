@@ -1,13 +1,19 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
 		//countDown(10);
+		Scanner scan = new Scanner(System.in);
 		Sort sort = new Sort();
-		int[] array1 = new int[] {10,9,8,7,6,5,4,3,2,1};
-		sort.insertion(array1);
+		int[] array1 = new int[10];
+		loadArrayRandom(array1,10,0);
 		showArray(array1);
+		sort.quick(array1,0,array1.length-1);
+		showArray(array1);
+		
+		scan.close();
 		/*
 		
 		
