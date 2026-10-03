@@ -8,20 +8,18 @@ public class Sort {
 		
 	}
 	
-	public void quick(int[] array, int start, int end) {
-		//pick any spot(the last elmt) to be pivot value. 
-		
+	public void quick(int[] array){
+		quick(array,0,array.length-1);
+	}
+
+	private void quick(int[] array, int start, int end) {
 		int pivot = array[end];
 		int right = start;
 		int left = right - 1;
 		int swap;
-		//System.out.println("Pivot = "+pivot);
-		
-		
+
 		while(left<=right && right<end) {
-			//System.out.println("Left: "+left+"\nRight: "+right);
 			if(array[right]<=pivot) {
-				//System.out.println("Swapping!");
 				left++;
 				swap = array[left];
 				array[left] = array[right];
@@ -30,26 +28,15 @@ public class Sort {
 			right++;
 			
 		}
-		//System.out.println("Final Swap");
 		left++;
 		swap = array[left];
 		array[left] = array[right];
 		array[right] = swap;
 		
-		
-		//System.out.println("Partitioning!");
-		
 		if(left<right) {
-		//System.out.println("Starting Left Partition from "+start+" to "+(left-1));
 		quick(array,start,left-1);
 		quick(array,left+1,right);
-		}
-		else {
-			//System.out.println("Too small for another partition. moving up!");
-		}
-		
-		
-		
+		}	
 	}
 	
 	public void insertion(int[] array) {
