@@ -10,7 +10,7 @@ public class Main {
 		int[] array1 = new int[10];
 		loadArrayRandom(array1,10,0);
 		showArray(array1);
-		sort.quick(array1,0,array1.length-1);
+		sort.quick(array1);
 		showArray(array1);
 		
 		scan.close();
