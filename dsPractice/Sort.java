@@ -72,7 +72,6 @@ public class Sort {
 				}
 			}
 		}
-		
 	}
 	
 	public void bubble(int[] array1) {
