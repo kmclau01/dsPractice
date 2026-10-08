@@ -2,16 +2,39 @@
 
 public class Sort {
 
-	public void merge(int[] array) {
+	public void merge1(int[] array) {
 		System.out.println("Starting Merge Sort...");		
-		int[] newArray = merge(array,0,array.length-1);
+		int[] newArray = merge1(array,0,array.length-1);
 		
 		for(int i = 0; i < newArray.length; i++) {
 			array[i] = newArray[i];
 		}
 	}
+	
+	public void merge(int[] array, int start, int stop) {
+		if(stop<=start)
+			return;
+		else {
+			int mid = (stop - start)/2 + start;
+			merge(array,start,mid);
+			merge(array,mid+1,stop);
+			int length = stop - start;
+			int index1 = 0;
+			int index2 = 1;
+			
+			for(int i = 0; i < length; i++) {
+				
+			}
+			
+			
+		}
+		
+		
+	}
+	
+	
 		//look at middle like in binary search. lower section is lessthan middle and other section is greaterthan
-	public int[] merge(int[] array, int start, int stop ) {
+	public int[] merge1(int[] array, int start, int stop ) {
 		
 		if(stop<=start) {
 			int[] arrayStop = {array[start]};
@@ -19,8 +42,8 @@ public class Sort {
 		}
 		else {
 			int mid = (stop - start)/2 + start;
-			int[] array1 = merge(array,start,mid);
-			int[] array2 = merge(array,mid+1,stop);
+			int[] array1 = merge1(array,start,mid);
+			int[] array2 = merge1(array,mid+1,stop);
 
 			int[] array3 = new int[ array1.length + array2.length];
 			int index1 = 0;
