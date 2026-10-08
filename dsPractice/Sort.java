@@ -3,36 +3,30 @@
 public class Sort {
 
 	public void merge(int[] array) {
-		System.out.println("Starting Merge Sort...");
-		int[] arrayNew = merge(array,0,array.length-1);
-		array = arrayNew;
+		System.out.println("Starting Merge Sort...");		
+		int[] newArray = merge(array,0,array.length-1);
+		
+		for(int i = 0; i < newArray.length; i++) {
+			array[i] = newArray[i];
+		}
 	}
 		//look at middle like in binary search. lower section is lessthan middle and other section is greaterthan
 	public int[] merge(int[] array, int start, int stop ) {
 		
-		//if
 		if(stop<=start) {
 			int[] arrayStop = {array[start]};
-			System.out.println("Returning "+arrayStop[0]);
 			return arrayStop;
 		}
 		else {
-		//split it up
 			int mid = (stop - start)/2 + start;
-		//divy it out
-			System.out.println("Splitting!");
 			int[] array1 = merge(array,start,mid);
 			int[] array2 = merge(array,mid+1,stop);
-		
-		//after its split into several sections, zip up the two halfs
-			
+
 			int[] array3 = new int[ array1.length + array2.length];
-			System.out.println("Making array length of "+array3.length);
 			int index1 = 0;
 			int index2 = 0;
 			
 			for(int i = 0; i < array3.length; i++) {
-				
 				if(index1 >= array1.length) {
 					array3[i] = array2[index2];
 					index2++;
@@ -42,26 +36,16 @@ public class Sort {
 					index1++;
 				}
 				else {
-				System.out.println("Comparing "+array1[index1]+" and "+array2[index2]);
 					if(array1[index1] <= array2[index2]) {
-						System.out.println(array1[index1]+" is smaller");
 						array3[i] = array1[index1];
 						index1++;
-						
 					}
 					else {
-						System.out.println(array2[index2]+" is smaller");
 						array3[i] = array2[index2];
 						index2++;
-						
 					}
 				}
 			}
-			System.out.print("Returning: ");
-			for(int i = 0; i < array3.length; i++) {
-				System.out.print(array3[i]+", ");
-			}
-			System.out.println();
 			return array3;
 		}
 	}
