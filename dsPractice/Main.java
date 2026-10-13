@@ -4,14 +4,16 @@ import java.util.Random;
 public class Main {
 
 	public static void main(String[] args) {
+		Sort sort = new Sort();
+		
 		//countDown(10);
 		//Scanner scan = new Scanner(System.in);
-		Sort sort = new Sort();
-		int[] array1 = new int[10];
-		loadArrayRandom(array1,10,0);
-		showArray(array1);
-		sort.merge(array1);
-		showArray(array1);
+		
+		//int[] array1 = new int[10];
+		//loadArrayRandom(array1,10,0);
+		//showArray(array1);
+		//sort.merge(array1);
+		//showArray(array1);
 		
 		//scan.close();
 		/*

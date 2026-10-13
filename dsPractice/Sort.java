@@ -18,12 +18,27 @@ public class Sort {
 			int mid = (stop - start)/2 + start;
 			merge(array,start,mid);
 			merge(array,mid+1,stop);
-			int length = stop - start;
-			int index1 = 0;
-			int index2 = 1;
+			//int length = stop - start;
+			int index1 = start;
+			int index2 = mid+1;
+			int hold;
 			
-			for(int i = 0; i < length; i++) {
-				
+			for(int i = 0; i < (stop - start); i++) {
+				if(index1 >= mid) {
+					
+				}
+				else if (index2 >= stop) {
+					
+				}
+				else {
+					if(array[index1] <= array[index2]) {
+						index1++;
+					}
+					else {
+						hold = array[index2];
+						
+					}
+				}
 			}
 			
 			
