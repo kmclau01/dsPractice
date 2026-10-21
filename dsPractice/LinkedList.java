@@ -40,45 +40,55 @@ public class LinkedList {
 		}
 	}
 	
-	public Node linSearch(int value) {
+	public Node search(int value) {
 		boolean found = false;
 		Node curNode = this.head;
-		while(curNode.next != null) {
+		while(!found && curNode != null) {
 			if(curNode.value == value) {
 				found = true;
-				break;
 			}
-			else
+			else{
 				curNode = curNode.next;
+				if(curNode == null || curNode == this.head){
+					return null;
+				}
+			}
 		}
-		if(found)
-			return curNode;
-		else
-			return null;
+		return curNode;
 	}
 	
-	public Node prevlinSearch(Node node) {
+	public Node prevSearch(Node node) {
 		boolean found = false;
 		Node curNode = this.head;
-		while(curNode.next != null) {
+		while(!found && curNode != null) {
 			if(curNode.next == node) {
 				found = true;
-				break;
 			}
-			else
+			else{
 				curNode = curNode.next;
+				if(curNode == null || curNode == this.head){
+					return null;
+				}
+			}
 		}
-		if(found)
-			return curNode;
-		else
-			return null;
+		return curNode;
+		
 	}
 	
 	public Node delete(int value) {
-		Node delNode = linSearch(value);
-		Node prevNode = prevlinSearch(delNode);
+		Node delNode = search(value);
+		Node prevNode = prevSearch(delNode);
 		
-		prevNode.next = delNode.next;
+		if(delNode == this.head){
+			this.head = delNode.next;
+		}
+		else if(delNode == this.tail) {
+			this.tail = prevNode;
+		}
+		
+		if(prevNode != null) {
+			prevNode.next = delNode.next;
+		}
 		delNode.next = null;
 		return delNode;
 	}
@@ -88,6 +98,9 @@ public class LinkedList {
 		while(curNode != null) {
 			System.out.printf("Value: %d - Next: %h\n",curNode.value,curNode.next);
 			curNode = curNode.next;
+			if(curNode == null || curNode == this.head){
+				break;
+			}
 		}	
 	}
 	
@@ -97,7 +110,10 @@ public class LinkedList {
 		list.append(10);
 		list.append(20);
 		list.append(30);
+		//list.search(30).next = list.search(10);
 		
+		list.show();
+		System.out.println("Deleting " + list.delete(10).value);
 		list.show();
 	}
 }
