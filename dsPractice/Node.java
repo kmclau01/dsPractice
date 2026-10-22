@@ -11,4 +11,9 @@ public class Node {
 		this.next = null;
 		this.prev = null;
 	}
+	
+	public String toString() {
+		return "| Value: "+this.value+", Previous: "+this.prev+", Next: "+this.next;
+	}
+	
 }
