@@ -13,7 +13,20 @@ public class Node {
 	}
 	
 	public String toString() {
-		return "| Value: "+this.value+", Previous: "+this.prev+", Next: "+this.next;
+		String show = "Value: "+this.value+", Previous: ";
+		if(this.prev != null)
+			show = show + this.prev.value;
+		else
+			show = show + "null";
+		
+		show = show +", Next: ";
+		if(this.next!=null)
+			show = show + this.next.value;
+		else
+			show = show + "null";
+		
+		
+		return show;
 	}
 	
 }
