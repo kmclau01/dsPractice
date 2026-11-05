@@ -15,10 +15,19 @@ public class HashTable {
 		//always modulo by capacity so index is never bigger than capacity
 		//This is technically a TERRIBLE hash function
 		char[] list = key.toCharArray();
+		String hash = "";
 		int index = 0;
 		for(int i = 0; i < list.length; i++) {
-			index = (index + list[i] * 457)% this.capacity;
+			index = list[i];
+			hash = hash + Integer.toString(index);
+			
 		}
+		//System.out.println("Hashkey: "+hash);
+		for(int i = hash.length(); i < 0; i--) {
+			index = index + (hash.charAt(i)-48)*10^i;
+		}
+		index = (index * 457) % this.capacity;
+		//System.out.println("Final Key: "+index);
 		return index;
 	}
 	
