@@ -12,6 +12,7 @@ public class Driver {
 		tree.insert(8);
 		tree.insert(2);
 		tree.insert(17);
+		tree.insert(16);
 		
 		tree.inOrderTraversal(tree.root);
 		System.out.println();
@@ -20,7 +21,11 @@ public class Driver {
 		tree.postOrderTraversal(tree.root);
 		System.out.println();
 		
-		System.out.println(tree.search(17).key);
+		tree.delete(10);
+		
+		tree.preOrderTraversal(tree.root);
+		System.out.println();
+		
 		
 	}
 

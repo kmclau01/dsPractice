@@ -19,9 +19,11 @@ public class BinarySearchTree {
 		}
 		if(key<current.key) {
 			current.left = insert(current.left,key);
+			current.left.prev = current;
 		}else {
 			if(key > current.key) {
-				current.right = insert(current.right,key);	
+				current.right = insert(current.right,key);
+				current.right.prev = current;
 			}
 		}
 		return current;
@@ -60,13 +62,57 @@ public class BinarySearchTree {
 	private Node delete(Node current, int key){
 		
 		
+		if(current.key == key) {
+			if(current.right != null) {
+				findMin(current.right).left = current.left;
+				Node node = current.right;
+				current.right = null;
+				current.left = null;
+				return node;
+			}
+			else {
+				Node node = current.left;
+				current.right = null;
+				current.left = null;
+				return node;
+			}
+			
+			
+			
+			
+		}
+		else if(key < current.key) {
+			if(current.left != null) {
+				 Node node = delete(current.left, key);
+				 if(current.left != node) {
+					 current.left = node;
+				 }
+				 return current;
+			
+			}
+		}
+		else {
+			if( current.right != null) {
+				
+				Node node = delete(current.right, key);
+				if(current.right != node) {
+					current.right = node;
+				}
+				return current;
+			}
+		}
+		
 		return null;
 	}
 	
 	
 	//****** Find Minimum Key Value ***************************
-	public int findMin(Node node) {
-		return 0;
+	public Node findMin(Node node) {
+			while(node.left != null) {
+				node = node.left;
+			}
+		
+		return node;
 	}
 	
 	//****** Height (Count in Nodes) ***************************
